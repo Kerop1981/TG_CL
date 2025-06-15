@@ -1,0 +1,26 @@
+<div class="post-form">
+  <h2>Создать пост</h2>
+
+  <label>
+    Канал:
+    <select [(ngModel)]="selectedChannel" name="channel">
+      <option [value]="''" disabled>Выбери канал</option>
+      <option *ngFor="let ch of channelService.getChannels()" [value]="ch.name">
+        {{ ch.name }}
+      </option>
+    </select>
+  </label>
+
+  <br />
+
+  <label>
+    Сообщение:
+    <textarea [(ngModel)]="content" name="content"></textarea>
+  </label>
+
+  <br />
+
+  <button (click)="onSubmit()">Опубликовать</button>
+
+  <p *ngIf="message">{{ message }}</p>
+</div>
